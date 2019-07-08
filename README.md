@@ -10,6 +10,8 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Build
 Status](https://travis-ci.org/jandix/mediacloudr.svg?branch=master)](https://travis-ci.org/jandix/mediacloudr)
+[![Codecov test
+coverage](https://codecov.io/gh/jandix/mediacloudr/branch/master/graph/badge.svg)](https://codecov.io/gh/jandix/mediacloudr?branch=master)
 <!-- badges: end -->
 
 The goal of mediacloudr is to provide a consistent wrapper for the
