@@ -12,8 +12,13 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 Status](https://travis-ci.org/jandix/mediacloudr.svg?branch=master)](https://travis-ci.org/jandix/mediacloudr)
 <!-- badges: end -->
 
-The goal of mediacloudr is to
-…
+The goal of mediacloudr is to provide a consistent wrapper for the
+mediacloud.org API. The Media Cloud platform is an open-source platform,
+that collects all kind of news stories and provides various
+functionalities to query, download and analyse them. This packages tries
+to support R users by providing a set of functions to access various
+functionalities of the
+mediacloud.org.
 
 ## Installation
 
@@ -31,13 +36,60 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("jandix/mediacloudr")
 ```
 
-## Example
+## API key
+
+Please [register](https://topics.mediacloud.org/#/user/signup) as a new
+user. Afterwards, you can copy your API key from your [profile
+page](https://topics.mediacloud.org/#/user/profile).
+
+I suggest to save the API key to your R environment file. The R
+environment file is loaded everytime R is started/restarted. You should
+not add the key to your scripts, because other users could misuse your
+key. The following steps show how to add the key to your R environment
+file.
+
+1.  Open your .Renviron file. The file is usually located in your home
+    directory. If the file does not exist, just create one and name it
+    `.Renviron`.
+2.  Add a new line and enter your API key in the following format:
+    `MEDIACLOUD_API_KEY=<YOUR_API_KEY>`.
+3.  Save the file and restart your current R session to start using
+    mediacloudr.
+
+## Request Limits
+
+The mediacloud.org states the following for API request/rate limits:
+
+“Each user is limited to 1,000 API calls and 20,000 stories returned in
+any 7 day period. Requests submitted beyond this limit will result in a
+status 403 error. Users who need access to more requests should email
+<info@mediacloud.org>.”
+
+## Examples
 
 ### Get a news story by id
 
-This is a basic example which shows you how to solve a common problem:
+You can query news stories by their ids. The ids can be found using the
+graphical interface or using the `get_story_list` function.
+
+*Note*: You don’t have to add the `api_key` argument if you followed the
+steps to add the api key to your R environment file.
 
 ``` r
-library(mediacloudr)
-## basic example code
+story_id <- 27456565L
+story <- get_story(story_id = story_id)
+```
+
+### Get a list with news stories
+
+You can query a list of news stories using `get_story_list`. You can use
+the `q` and `fq` arguments to filter stories. A guide to the query
+parameters can be found
+[here](https://mediacloud.org/support/query-guide/).
+
+*Note*: You don’t have to add the `api_key` argument if you followed the
+steps to add the api key to your R environment file.
+
+``` r
+stories <- get_story_list(q = "trump")
 ```
