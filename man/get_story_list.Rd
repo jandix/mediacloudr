@@ -4,13 +4,13 @@
 \alias{get_story_list}
 \title{Get story list}
 \usage{
-get_story_list(last_process_stories_id = 0, rows = 100,
+get_story_list(last_process_stories_id = 0L, rows = 100,
   feeds_id = NULL, q = NULL, fq = NULL,
   sort = "processed_stories_id", wc = FALSE, show_feeds = FALSE,
   api_key = Sys.getenv("MEDIACLOUD_API_KEY"))
 }
 \arguments{
-\item{last_process_stories_id}{Character string Return stories in which the
+\item{last_process_stories_id}{Return stories in which the
 processed_stories_id is greater than this
 value.}
 

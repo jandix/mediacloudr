@@ -7,7 +7,7 @@
 get_story(story_id, api_key = Sys.getenv("MEDIACLOUD_API_KEY"))
 }
 \arguments{
-\item{story_id}{Character string that contains a valid sotry id.}
+\item{story_id}{Positive numeric that contains a valid story id.}
 
 \item{api_key}{Character string with the API key you get from mediacloud.org.
 Passing it is compulsory. Alternatively, function can be
