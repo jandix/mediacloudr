@@ -11,8 +11,7 @@ get_story(story_id, api_key = Sys.getenv("MEDIACLOUD_API_KEY"))
 
 \item{api_key}{Character string with the API key you get from mediacloud.org.
 Passing it is compulsory. Alternatively, function can be
-provided from the global environment
-(see \code{set_api_key()}).}
+provided from the global environment.}
 }
 \value{
 Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md#stories} for field descriptions.
