@@ -9,6 +9,11 @@
 #'                Passing it is compulsory. Alternatively, function can be
 #'                provided from the global environment.
 #'
+#' @examples
+#' \dontrun{
+#'  story <- get_story(story_id = 604L)
+#' }
+#'
 #' @return Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md#stories} for field descriptions.
 #'
 #' @importFrom httr parse_url build_url GET http_error http_status content

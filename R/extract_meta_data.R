@@ -6,6 +6,15 @@
 #'
 #' @param html_doc Charcter string including the html document.
 #'
+#' @examples
+#' \dontrun{
+#'  library(httr)
+#'  url <- "https://bits.blogs.nytimes.com/2013/04/07/the-potential-and-the-risks-of-data-science"
+#'  response <- GET(url)
+#'  html_document <- content(response, type = "text", encoding = "UTF-8")
+#'  meta_data <- extract_meta_data(html_doc = html_document)
+#' }
+#'
 #' @return List with three sublists for native, open graph and twitter.
 #'
 #' @importFrom xml2 read_html

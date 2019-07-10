@@ -15,5 +15,8 @@ Imports:
   xml2
 Suggests:
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

@@ -21,3 +21,9 @@ Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/bl
 is one publisher. Every story that can be collected via \code{get_story}
 or \code{get_story_list} belongs to one media source.
 }
+\examples{
+\dontrun{
+ media_source <- get_media_source(media_id = 604L)
+}
+
+}

@@ -11,6 +11,11 @@
 #'
 #' @return Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md#media} for field descriptions.
 #'
+#' @examples
+#' \dontrun{
+#'  media_source <- get_media_source(media_id = 604L)
+#' }
+#'
 #' @importFrom httr parse_url build_url GET http_error http_status content
 #' @importFrom jsonlite fromJSON
 #'

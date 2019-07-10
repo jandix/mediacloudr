@@ -1,0 +1,100 @@
+---
+title: "Extract Social Media Meta Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{extract_meta_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+We start with loading the required packages. `mediacloudr` is used to download
+an article based on a article id received from the 
+[Media Cloud Topic Mapper](https://topics.mediacloud.org/). Furthermore, 
+`mediacloudr` provides a function to extract social media meta data from 
+HTML documents. `httr` is used to turn R into a HTTP client to download and 
+process the responding article page. We use `xml2` to parse - make it readable
+for R - the HTML document and `rvest` to find elements of interest within
+the HTML document.
+
+```{r setup, eval=FALSE}
+# load required packages
+library(mediacloudr)
+library(httr)
+library(xml2)
+library(rvest)
+```
+
+In the first step, we request the article with the id `1126843780`. It is 
+important to add the upper case `L` to the number to turn the numeric type into
+an integer type. Otherwise the function will throw an error. The article was 
+selected with help of the 
+[Media Cloud Topic Mapper](https://topics.mediacloud.org/) online tool. If you
+created an account, you can create and analyze your own topics.
+
+```{r get_article, eval=FALSE}
+# define media id as integer
+story_id <- 1126843780L
+# download article
+article <- get_story(story_id = story_id)
+```
+
+The USA Today [news article](https://eu.usatoday.com/story/news/2018/12/27/ice-drops-off-migrants-phoenix-greyhound-bus-station/2429545002/) comes with an URL which we can use to download the 
+complete article using the `httr` package. We use the `GET` function to 
+download the article. Afterwards, we extract the website using the `content`
+function. It is important to provide the `type` argument to extract the text 
+only. Otherwise, the function tries to guess the type and will automatically 
+parse the content based on the `content-type` HTTP header. The author of the
+`httr` package 
+[suggests](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html) 
+to manually parse the content. In this case, we use the `read_html` function
+which is provided in the `xml2` package.
+
+```{r download_website, eval=FALSE}
+# download article
+response <- GET(article$url[1])
+# extract article html
+html_document <- content(response, type = "text", encoding = "UTF-8")
+# parse website 
+parsed_html <- read_html(html_document)
+```
+
+After parsing the response into a R readable format, we extract the actual body 
+of the article. Therefore, we use the `html_nodes` function to find the html
+tags with defined in the `css` argument. A useful open soure tool to find the 
+corresponding tags or css classes is the 
+[Selector Gadget](https://selectorgadget.com/). Alternatively, you can use the
+developer tools of the browser you are usually using. The `html_text` provides
+us with a character vector. Each element contains a paragraph of the article. We
+use the `paste` function to merge the paragraph into one closed text. We could
+analyze the text using different metrics such as word frequencies or sentiment
+analysis.
+
+```{r body_content, eval=FALSE}
+# extract article body
+article_body_nodes <- html_nodes(x = parsed_html, css = ".content-well div p")
+article_body <- html_text(x = article_body_nodes)
+# paste character vector to one text
+article_body <- paste(article_body, collapse = " ")
+```
+
+In the last step, we extract the social media meta data from the article. Social
+media meta data are shown if the article URL is shared on social media. The
+article representation usually include a heading, summary and a small 
+image/thumbnail. The `extract_meta_data` expects a raw HTML document and 
+provides [Open Graph](http://ogp.me/) (a standard introduced by Facebook), [Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup.html) 
+and native meta data.
+
+```{r get_meta_data, eval=FALSE}
+# extract meta data from html document
+meta_data <- extract_meta_data(html_doc = html_document)
+```
+
+Open Graph Title: *"ICE drops off migrants at Phoenix bus station"*
+
+Article Title (provided by mediacloud.org): *"Arizona churches working to help 
+migrants are 'at capacity' or 'tapped out on resources'"*
+
+The meta data can be compared to the original content of the article. A short
+analysis reveals that USA Today chose a different heading to advertise the 
+article on Facebook. Larger analysis can use quantative tools such as string
+similarity measures, such as provided by the `stringdist` package.

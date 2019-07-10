@@ -23,6 +23,11 @@
 #' @param api_key Character string with the API key you get from mediacloud.org.
 #'                Passing it is compulsory. Alternatively, function can be
 #'                provided from the global environment.
+#' @examples
+#' \dontrun{
+#'  stories <- get_story_list()
+#'  stories <- get_story_list(q = "Trump")
+#' }
 #'
 #' @return Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md#stories} for field descriptions.
 #' @export

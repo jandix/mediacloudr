@@ -17,3 +17,13 @@ List with three sublists for native, open graph and twitter.
 from html documents. The meta data include url, title, description and image.
 The html document is parsed within the function
 }
+\examples{
+\dontrun{
+ library(httr)
+ url <- "https://bits.blogs.nytimes.com/2013/04/07/the-potential-and-the-risks-of-data-science"
+ response <- GET(url)
+ html_document <- content(response, type = "text", encoding = "UTF-8")
+ meta_data <- extract_meta_data(html_doc = html_document)
+}
+
+}

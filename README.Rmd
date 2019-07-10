@@ -98,3 +98,36 @@ steps to add the api key to your R environment file.
 stories <- get_story_list(q = "trump")
 ```
 
+### Get a media source by id
+
+You can query media sources by their ids. The ids can be found using the 
+graphical online interface. mediacloud.org provides various meta data for
+their media sources.
+
+*Note*: You don't have to add the `api_key` argument if you followed the 
+steps to add the api key to your R environment file.
+
+```{r media source example, eval=FALSE}
+media_id <- 1L
+media_source <- get_media_source(media_id =  media_id)
+```
+
+### Download article and extract social media meta data
+
+You can use the article URL to download the complete article and extract 
+social meta data. The meta data can be analyzed using techniques such as 
+sentiment analysis or simply compared to the article content.
+
+```{r extract_meta_data, eval=FALSE}
+# load httr
+library(httr)
+# define article url
+url <- "https://bits.blogs.nytimes.com/2013/04/07/the-potential-and-the-risks-of-data-science"
+# download article
+response <- GET(url)
+# extract article html
+html_document <- content(response, type = "text", encoding = "UTF-8")
+# extract meta data from html document
+meta_data <- extract_meta_data(html_doc = html_document)
+```
+

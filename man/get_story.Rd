@@ -21,3 +21,9 @@ Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/bl
 one online publication. Each story refers to a single URL from any feed
 within a single media source.
 }
+\examples{
+\dontrun{
+ story <- get_story(story_id = 604L)
+}
+
+}

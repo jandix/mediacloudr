@@ -46,3 +46,10 @@ Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/bl
 story represents one online publication. Each story refers to a single URL
 from any feed within a single media source.
 }
+\examples{
+\dontrun{
+ stories <- get_story_list()
+ stories <- get_story_list(q = "Trump")
+}
+
+}
