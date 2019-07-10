@@ -3,7 +3,7 @@ r:
   - oldrel
   - release
   - devel
- after_success:
-    - Rscript -e 'covr::codecov()'
+after_success:
+  - Rscript -e 'covr::codecov()'
 sudo: false
 cache: packages
