@@ -42,7 +42,7 @@ provided from the global environment.}
 Data frame with results. See \url{https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md#stories} for field descriptions.
 }
 \description{
-\code{get_story} returns a list of stories based on a multifacted query. One
+\code{get_story} returns a list of stories based on a multifaceted query. One
 story represents one online publication. Each story refers to a single URL
 from any feed within a single media source.
 }

@@ -4,7 +4,7 @@
 #' from html documents. The meta data include url, title, description and image.
 #' The html document is parsed within the function
 #'
-#' @param html_doc Charcter string including the html document.
+#' @param html_doc Character string including the html document.
 #'
 #' @examples
 #' \dontrun{

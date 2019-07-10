@@ -1,6 +1,6 @@
 #' Get story list
 #'
-#' \code{get_story} returns a list of stories based on a multifacted query. One
+#' \code{get_story} returns a list of stories based on a multifaceted query. One
 #' story represents one online publication. Each story refers to a single URL
 #' from any feed within a single media source.
 #'

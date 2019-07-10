@@ -60,7 +60,7 @@ parsed_html <- read_html(html_document)
 
 After parsing the response into a R readable format, we extract the actual body 
 of the article. Therefore, we use the `html_nodes` function to find the html
-tags with defined in the `css` argument. A useful open soure tool to find the 
+tags with defined in the `css` argument. A useful open source tool to find the 
 corresponding tags or css classes is the 
 [Selector Gadget](https://selectorgadget.com/). Alternatively, you can use the
 developer tools of the browser you are usually using. The `html_text` provides
@@ -96,5 +96,5 @@ migrants are 'at capacity' or 'tapped out on resources'"*
 
 The meta data can be compared to the original content of the article. A short
 analysis reveals that USA Today chose a different heading to advertise the 
-article on Facebook. Larger analysis can use quantative tools such as string
+article on Facebook. Larger analysis can use quantitative tools such as string
 similarity measures, such as provided by the `stringdist` package.

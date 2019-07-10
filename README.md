@@ -17,7 +17,7 @@ coverage](https://codecov.io/gh/jandix/mediacloudr/branch/master/graph/badge.svg
 The goal of mediacloudr is to provide a consistent wrapper for the
 mediacloud.org API. The Media Cloud platform is an open-source platform,
 that collects all kind of news stories and provides various
-functionalities to query, download and analyse them. This packages tries
+functionalities to query, download and analyze them. This packages tries
 to support R users by providing a set of functions to access various
 functionalities of the
 mediacloud.org.
@@ -45,7 +45,7 @@ user. Afterwards, you can copy your API key from your [profile
 page](https://topics.mediacloud.org/#/user/profile).
 
 I suggest to save the API key to your R environment file. The R
-environment file is loaded everytime R is started/restarted. You should
+environment file is loaded every time R is started/restarted. You should
 not add the key to your scripts, because other users could misuse your
 key. The following steps show how to add the key to your R environment
 file.

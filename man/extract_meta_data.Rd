@@ -7,7 +7,7 @@
 extract_meta_data(html_doc)
 }
 \arguments{
-\item{html_doc}{Charcter string including the html document.}
+\item{html_doc}{Character string including the html document.}
 }
 \value{
 List with three sublists for native, open graph and twitter.
