@@ -36,3 +36,21 @@ testthat::test_that(
   "test that function parses the document correct", {
     testthat::expect_equal(mediacloudr::extract_meta_data(html_doc = html_doc), meta_data)
   })
+
+# test result set --------------------------------------------------------------
+testthat::test_that(
+  "test that function returns extactly 100 rows", {
+    testthat::skip_if(nchar(Sys.getenv("MEDIACLOUD_API_KEY")) == 0,
+                      message = "API key not available in environment. Skipping test.")
+    example_result <- mediacloudr::get_story_list()
+    testthat::expect_equal(nrow(example_result), 100,
+                           info = paste0("100 row expected, but got ", nrow(example_result), " row(s)."))
+  })
+testthat::test_that(
+  "test that function returns 15 columns", {
+    testthat::skip_if(nchar(Sys.getenv("MEDIACLOUD_API_KEY")) == 0,
+                      message = "API key not available in environment. Skipping test.")
+    example_result <- mediacloudr::get_story_list()
+    testthat::expect_equal(ncol(example_result), 15,
+                           info = paste0("15 cols expected, but got ", ncol(example_result), " col(s)."))
+  })

@@ -30,3 +30,21 @@ testthat::test_that(
     testthat::expect_error(mediacloudr::get_story(story_id = 604L, api_key = ""),
                            regexp = "Please define an API key.")
   })
+
+# test result set --------------------------------------------------------------
+testthat::test_that(
+  "test that function returns only one row", {
+    testthat::skip_if(nchar(Sys.getenv("MEDIACLOUD_API_KEY")) == 0,
+                      message = "API key not available in environment. Skipping test.")
+    example_result <- mediacloudr::get_story(27456565L)
+    testthat::expect_equal(nrow(example_result), 1,
+                           info = paste0("1 row expected, but got ", nrow(example_result), " row(s)."))
+  })
+testthat::test_that(
+  "test that function returns 15 columns", {
+    testthat::skip_if(nchar(Sys.getenv("MEDIACLOUD_API_KEY")) == 0,
+                      message = "API key not available in environment. Skipping test.")
+    example_result <- mediacloudr::get_story(27456565L)
+    testthat::expect_equal(ncol(example_result), 15,
+                           info = paste0("15 cols expected, but got ", nrow(example_result), " col(s)."))
+  })
