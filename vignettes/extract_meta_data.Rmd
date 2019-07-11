@@ -45,7 +45,7 @@ function. It is important to provide the `type` argument to extract the text
 only. Otherwise, the function tries to guess the type and will automatically 
 parse the content based on the `content-type` HTTP header. The author of the
 `httr` package 
-[suggests](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html) 
+[suggests](https://CRAN.R-project.org/package=httr/vignettes/quickstart.html) 
 to manually parse the content. In this case, we use the `read_html` function
 which is provided in the `xml2` package.
 
