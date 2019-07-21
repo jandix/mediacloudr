@@ -1,6 +1,11 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
+* Updated the description as suggested by the CRAN maintainers.
+
+## Resubmission
+This is a resubmission. In this version I have:
+
 * Updated the package title as suggested by the CRAN maintainers.
 
 * Replaced a CRAN URL with canonical form.
