@@ -29,12 +29,13 @@ mediacloud.org.
 
 ## Installation
 
-<!-- You can install the released version of mediacloudr from [CRAN](https://CRAN.R-project.org) with:
+The **mediacloudr**-package is now on CRAN :tada: . You can install the released 
+version of mediacloudr from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("mediacloudr")
 ```
--->
+
 
 And the development version from [GitHub](https://github.com/) with:
 

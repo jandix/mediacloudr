@@ -19,17 +19,17 @@ mediacloud.org API. The Media Cloud platform is an open-source platform,
 that collects all kind of news stories and provides various
 functionalities to query, download and analyze them. This packages tries
 to support R users by providing a set of functions to access various
-functionalities of the
-mediacloud.org.
+functionalities of the mediacloud.org.
 
 ## Installation
 
-<!-- You can install the released version of mediacloudr from [CRAN](https://CRAN.R-project.org) with:
+The **mediacloudr**-package is now on CRAN :tada: . You can install the
+released version of mediacloudr from [CRAN](https://CRAN.R-project.org)
+with:
 
 ``` r
 install.packages("mediacloudr")
 ```
--->
 
 And the development version from [GitHub](https://github.com/) with:
 
